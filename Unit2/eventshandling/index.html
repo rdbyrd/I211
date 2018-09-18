@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            html, body {
+                margin: 0;
+                height: 100%;
+            }
+        </style>
+        <script>
+
+//        //show coordinates of mouse pointer
+//        function showCoord(event) {
+//            document.getElementById("coord").innerHTML = "(" + event.pageX + ", " + event.pageY + ")";
+//            document.getElementById("coord").style.left = event.pageX + 10 + "px";
+//            document.getElementById("coord").style.top = event.pageY - 10 + "px";
+//        }
+//        
+//        //hide coordinates
+//        function hideCoord(event) {
+//            document.getElementById('coord').innerHTML = "";
+//        }
+//        
+//        document.onmousemove = showCoord;
+//        document.onmouseout = hideCoord;
+
+//create an anonymous function
+//            document.onmousemove = function () {
+//                document.getElementById("coord").innerHTML = "(" + event.pageX + ", " + event.pageY + ")";
+//                document.getElementById("coord").style.left = event.pageX + 10 + "px";
+//                document.getElementById("coord").style.top = event.pageY - 10 + "px";
+//            }
+//            document.onmouseout = function () {
+//                document.getElementById('coord').innerHTML = "";
+//            }
+
+            document.addEventListener("mousemove", function (event) {
+                document.getElementById("coord").innerHTML = "(" + event.pageX + ", " + event.pageY + ")";
+                document.getElementById("coord").style.left = event.pageX + 10 + "px";
+                document.getElementById("coord").style.top = event.pageY - 10 + "px";
+            });
+
+            document.addEventListener("mouseout", function () {
+                document.getElementById('coord').innerHTML = "";
+            })
+            
+            document.addEventListener("click", function(event) {
+              alert("You have clicked the screen.");  
+            })
+        </script>
+    </head>
+    <body>
+        <div id="coord" style="position: absolute"></div>
+    </body>
+</html>

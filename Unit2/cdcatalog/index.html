@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>CD CATALOG</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="loadJSONDoc.js" type="text/javascript"></script>
+        <style>
+            body {
+                text-align: center;
+            }
+            ul {
+                list-style-type: none;
+                margin: 0;
+                padding: 0;
+                font-size: 0;
+            }
+
+            li {
+                display: inline-block;
+                border-bottom: 1px solid #ccc;
+                padding: 6px;
+                text-align: left;
+                font-size: 16px;
+            }
+
+            .title {
+                width: 200px;
+            }
+
+            .artist {
+                width: 120px;
+            }
+            .country {
+                width: 80px;
+            }
+            .company {
+                width: 100px;
+            }
+
+            .price {
+                width: 50px;
+            }
+
+            .year {
+                width: 50px;
+            }
+
+            ul#header li {
+                border-top: 1px solid #ccc;
+                background-color: #CCC;
+                font-size: 18px;
+            }
+        </style>
+        <script>
+            window.onload = function() {
+                //get the JSON object defined in local JSON document
+                var catalogText = loadJSON('cds.json');
+                var catalogObj = JSON.parse(catalogText);
+                
+                //retrieve the value that is associated wtih the name "catalog"
+                var catalog = catalogObj.catalog;
+                var cds = catalog.CD;
+        
+//        console.log(cds);
+
+                //use a for loop to iterate all cds in the array and create an undered list for each cd
+                for (var i = 0; i < cds.length; i++) {
+                    var title = cds[i].title;
+                    var artist = cds[i].artist;
+                    var country = cds[i].country;
+                    var company = cds[i].company;
+                    var price = cds[i].price;
+                    var year = cds[i].year;
+                    
+                    //create an undered list for the cd
+                    row = "<ul>";
+                    row += "<li class='title'>" + title + "</li>";
+                    row += "<li class='artist'>" + artist + "</li>";
+                    row += "<li class='country'>" + country + "</li>";
+                    row += "<li class='company'>" + company + "</li>";
+                    row += "<li class='price'>" + price + "</li>";
+                    row += "<li class='year'>" + year + "</li>";
+                    row += "</ul>";
+                    
+                    //append the new cd to the current cds.
+                    document.getElementById('cd-table').innerHTML += row;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <h2>CD CATALOG</h2>
+        <ul id="header">
+            <li class="title"><strong>Title</strong></li>
+            <li class="artist"><strong>Artist</strong></li>
+            <li class="country"><strong>Country</strong></li>
+            <li class="company"><strong>Company</strong></li>
+            <li class="price"><strong>Price</strong></li>
+            <li class="year"><strong>Year</strong></li>
+        </ul>
+        <div id="cd-table"></div>
+    </body>
+</html>
