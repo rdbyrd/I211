@@ -1,0 +1,62 @@
+/*
+    Document   : app_style.css
+    Author     : Louie Zhu
+    Description: External style sheet for the application.
+*/
+body {
+    text-align: center;
+    
+}
+
+/* styles for the table */
+table {
+    margin: 10px auto;
+    width: 900px;
+    border-collapse: collapse;
+}
+
+th {
+    text-align: left;
+    border: 1px solid #999;
+    font-size: larger;
+    padding: 8px 5px;
+}
+
+td {
+    text-align: left;
+    border: 1px solid #999;
+    padding: 5px;
+}
+
+tr:nth-child(odd) {
+    background-color: #eee;
+}
+
+/*column width */
+th:nth-child(1) {
+    width: 10%;
+}
+
+th:nth-child(2) {
+    width: 16%;
+}
+
+th:nth-child(3) {
+    width: 30%;
+}
+
+th:nth-child(4) {
+    width: 10%;
+}
+
+th:nth-child(5) {
+    width: 10%;
+}
+
+th:nth-child(6) {
+    width: 14%;
+}
+
+th:nth-child(7) {
+    width: 10%;
+}
