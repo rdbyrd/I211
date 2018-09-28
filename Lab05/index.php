@@ -1,3 +1,8 @@
+<!--Ryan Byrd
+9/27/2018
+index.php
+The form that processes the data that's input.-->
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -13,7 +18,7 @@
 
         <div id="zipcode-input">
             <strong>Enter 5-digit zip code:</strong>
-			<input maxlength="5" id="zipcode" onkeyup="handlekeyup(e)">
+			<input maxlength="5" id="zipcode" onkeyup="handlekeyup(event)">
 			<span id="message" style="color: red; margin-left: 5px"></span>
         </div>
     
@@ -32,7 +37,7 @@
                 </tr>
                 <tr>
                     <td>Area Code</td>
-                    <td id="area-code"></td>
+                    <td id="area_code"></td>
                 </tr>
                 <tr>
                     <td>Population</td>
@@ -40,7 +45,7 @@
                 </tr>
                 <tr>
                     <td>Time Zone</td>
-                    <td id="time-zone"></td>
+                    <td id="time_zone"></td>
                 </tr>
                 <tr>
                     <td>Latitude</td>
