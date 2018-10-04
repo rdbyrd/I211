@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+Ryan Byrd
+10/04/2018
+index.php
+Receive user input
+-->
 <html>
     <head>
         <meta charset="UTF-8">
@@ -21,6 +27,8 @@
             }
 
         </style>
+
+        <!--JavaScript function included-->
         <script src="main.js" type="text/javascript"></script>
     </head>
     <body>
@@ -29,8 +37,11 @@
             <div style="height: 130px; padding-bottom: 30px; border-bottom: 1px dotted #aaa">
                 <div style="width: 60%; float: left">
                     <h4>Enter radius and height:</h4>
-                    Radius (r): <input id="radius" type="number" min="0.1" step="0.1" placeholder="Enter value"><br><br>
-                    Height (h): <input id="height" type="number" min="0.1" step="0.1" placeholder="Enter value">
+
+                    <!--Calculate function included-->
+                    Radius (r): <input id="radius" type="number" min="0.1" step="0.1" onkeyup="calculate()" placeholder="Enter value"><br><br>
+                    Height (h): <input id="height" type="number" min="0.1" step="0.1" onkeyup="calculate()" placeholder="Enter value">
+
                 </div>
                 <div style="width: 40%; float: left; text-align: center; height: 130px;">
                     <img src="cylinder.png" alt="" style="width: 120px"/>
