@@ -16,6 +16,7 @@ class Cylinder extends Circle {
     private $height;
 
     public function __construct($height) {
+        parent::__construct($radius);
         $this->height = $height;
     }
 
@@ -25,14 +26,11 @@ class Cylinder extends Circle {
 
     public function getBaseArea() {
         //area of a base is a circle
-
-        
     }
 
     public function getVolume($baseArea, $height) {
-    
+
         return $baseArea * $height;
-        
     }
 
     public function getLateralSurface() {
