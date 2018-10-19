@@ -8,29 +8,31 @@
  */
 
 //child class of ComissionEmployee
-class basePlusCommissionEmployee extends CommissionEmployee {
+class BasePlusCommissionEmployee extends CommissionEmployee {
 
     //private attribute
     private $baseSalary;
 
-    public function __construct($baseSalary) {
+    public function __construct($person, $ssn, $sales, $commission_rate, $baseSalary) {
         parent::__construct($person, $ssn, $sales, $commission_rate);
         $this->baseSalary = $baseSalary;
     }
+    
+    // getters
 
     public function getBaseSalary() {
         return $this->baseSalary;
     }
 
     public function getPaymentAmount() {
-        parent::getPaymentAmount();
+        return parent::getPaymentAmount() + $this->baseSalary;
     }
-
+    
+    // print info
     public function toString() {
-        echo "<br/> Base salary: ", $this->getBaseSalary;
-        echo "<br/> Base salary: ", $this->getBaseSalary;
-        echo "<br/> Base salary: ", $this->getBaseSalary;
-        echo "<br/> Base salary: ", $this->getPaymentAmount;
+        echo "<strong>Base Plus</strong><br>";
+        parent::toString();
+        printf("<br/> Base salary: $%0.2f", $this->getBaseSalary());
     }
 
 }

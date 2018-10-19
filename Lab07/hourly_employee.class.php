@@ -8,13 +8,13 @@
  */
 
 //create hourly employee class, child of employee
-class HourlyEmployee extends Employee implements Payable {
+class HourlyEmployee extends Employee {
     
     //private attributes for the hourly employee page
     private $wage;
     private $hours;
     
-    public function __construct($wage, $hours) {
+    public function __construct($person, $ssn, $wage, $hours) {
         
         parent::__construct($person, $ssn);
         
@@ -34,15 +34,16 @@ class HourlyEmployee extends Employee implements Payable {
 
     //get payment amount
     public function getPaymentAmount() {
-        return $this->getPaymentAmount();
+        return $this->wage * $this->hours;
     }
     
     //toString
     public function toString() {
+        echo "<strong>Hourly Employee</strong><br>";
         parent::toString();
-        echo "<br>Wage per hour: $", $this->getWage();
+        printf ("Wage per hour: $%0.2f", $this->getWage());
         echo "<br>Hours: ", $this->getHours();
-        echo "<br>Earning: $", $this->getPaymentAmount();
+        printf ("<br>Earning: $%0.2f", $this->getPaymentAmount());
     }
     
 

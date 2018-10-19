@@ -34,12 +34,17 @@ class CommissionEmployee extends Employee {
         $amount = $this->sales * $this->commission_rate;
         return $amount;
     }
-
+    
+    // print info
     public function toString() {
+        echo"<strong>Commission Employee</strong><br>";
         parent::toString();
-        printf("Sales: %0.2f", $this->getSales());
+        printf("Sales: $%0.2f", $this->getSales());
+        echo "<br>";
         printf("Commission Rate: %0.2f", $this->getCommissionRate());
-        printf("Payment Amount: %0.2f", $this->getPaymentAmounts());
+        echo "<br>";
+        printf("Payment Amount: $%0.2f", $this->getPaymentAmount());
+        
     }
 
 }

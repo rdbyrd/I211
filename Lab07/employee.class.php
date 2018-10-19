@@ -16,7 +16,7 @@ abstract class Employee {
     private static $employee_count = 0;
     
     //public constructor for the employee
-    public function __construct($person, $ssn, $employee_count) {
+    public function __construct($person, $ssn) {
         $this->person = $person;
         $this->ssn = $ssn;
         self::$employee_count++;
@@ -37,9 +37,10 @@ abstract class Employee {
     
     //person, ssn, employee count
     public function toString () {
-     echo "Person: ", $this->getPerson();
-     echo "<br>SSN: ", $this->getSSN();
-     echo "<br>Employee Count: ", self::$employee_count;
+     
+     echo "Name: ", $this->getPerson();
+     echo "<br>SSN: ", $this->getSSN(), "<br>";
+     
         
         
     }

@@ -29,8 +29,7 @@ class Person {
 
     //turn the class into a string and output it
     public function toString() {
-        echo "First Name: ", $this->getFirstName();
-        echo "Last Name: ", $this->getLastName();
+        echo "Name: ", $this->getFirstName(), " " , $this->getLastName();
     }
 
 }

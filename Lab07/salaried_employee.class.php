@@ -16,7 +16,7 @@ class SalariedEmployee extends Employee {
     public function __construct($person, $ssn, $weekly_salary) {
         parent::__construct($person, $ssn);
         $this->weekly_salary = $weekly_salary;
-        self::$student_count;
+        self::$employee_count;
     }
 
     //define getters
@@ -30,9 +30,12 @@ class SalariedEmployee extends Employee {
 
     //extend the parent toString method by adding output for weekly salary and payment amount
     public function toString() {
+        echo "<strong>Salaried Employee</strong><br>";
         parent::toString();
-        printf("Weekly Salary: %0.2f", $this->getWeeklySalary());
-        printf("Payment Amount: %0.2f", $this->getPaymentAmount());
+        printf("Weekly Salary: $%0.2f", $this->getWeeklySalary());
+        echo "<br>";
+        printf("Payment Amount: $%0.2f", $this->getPaymentAmount());
+        echo "<br>";
     }
 
 }

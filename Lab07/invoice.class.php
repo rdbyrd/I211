@@ -3,12 +3,14 @@
 
 class Invoice implements Payable {
     
+    // attributes
     private $part_number;
     private $part_description;
     private $quantity;
     private $price_per_item;
     private static $invoice_count = 0;
     
+    // constructor
     public function __construct($part_number, $part_description, $quantity, $price_per_item) {
         $this->part_number = $part_number;
         $this->part_description = $part_description;
@@ -16,6 +18,8 @@ class Invoice implements Payable {
         $this->price_per_item = $price_per_item;
         self::$invoice_count++;
     }
+    
+    // getters
     
     public function getPart_number() {
         return $this->part_number;
@@ -42,14 +46,14 @@ class Invoice implements Payable {
     }
     
    
-    
+    // print info
     public function toString() {
         echo "<b>Invoice:</b><br>";
-        echo "Part Number: " , $this->part_number, "(" , $this->part_description , ")<br>";
-        echo "Quantity: " , $this->quantity;
-        echo "Price per Item: " , $this->price_per_item, "<br>";
-        echo "Payment: " , $this->getPaymentAmount();
-        
+        echo "Part Number: " , $this->getPart_number(), "(" , $this->part_description , ")<br>";
+        echo "Quantity: " , $this->quantity, "<br>";
+        printf ("Price Per Item: $%0.2f" , $this->price_per_item);
+        printf ("<br>Payment: $%0.2f" , $this->getPaymentAmount());
+        echo "<br>";
     }
     
 }
