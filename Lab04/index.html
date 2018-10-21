@@ -1,4 +1,10 @@
 <!DOCTYPE html>
+<!--
+Ryan Byrd
+9/20/2018
+index.html
+The purpose of this page is to represent a table of a selected state from the menu.
+-->
 <html>
     <head>
         <title>Extreme Weather Records by State </title>
@@ -12,38 +18,23 @@
              */
             window.onload = function () {
 
-                //get the JSON object defined in the JSON document for this lab
+                //get the JSON object defined in the JSON document 
                 var extremesText = loadJSON('extremes.json');
+
+                //translate JSON to be read in a table later
                 var extremesObj = JSON.parse(extremesText);
 
-                //retrieve the values associated with the name "extremes"
-                var extremes = extremesObj.extremes;
-                var extremes = extremes.extremes;
+                //initiate the onchange function so that the JS responds to the user selecting a new option
+                states.onchange = function () {
 
-                //use a for loop for all weather extremes in the array and create a list
-                for (var i = 0; i < extremes.length; i++) {
-                    var state = extremes[i].state;
-                    var element = extremes[i].element;
-                    var notes = extremes[i].notes;
-                    var value = extremes[i].value;
-                    var date = extremes[i].date;
-                    var location = extremes[i].location;
-                    var station = extremes[i].station;
+                    //declare variables: one to retrieve state; one to receive the state name from the dropdown
+                    var states = document.getElementById("states");
+                    var text = states.options[states.selectedIndex].text;
 
-                    //create a list to display each record as though it were a table
-                    row = "<ul>";
-                    row += "<li class='state'>" + state + "</li>";
-                    row += "<li class='element'>" + element + "</li>";
-                    row += "<li class='notes'>" + notes + "</li>";
-                    row += "<li class='value'>" + value + "</li>";
-                    row += "<li class='date'>" + date + "</li>";
-                    row += "<li class='location'>" + location + "</li>";
-                    row += "<li class='station'>" + station + "</li>";
-                    row = "</ul>";
+                    //call up the display function defined below
+                    display(text, extremesObj);
 
-                    //append the new record to the current extremes list
-                    document.getElementById('states').innerHTML += row;
-                }
+                };
             };
 
 
@@ -53,6 +44,61 @@
              */
             function display(state, data) {
 
+                //create the table headers to display the rows underneath. This is declared above the array to prevent each record having a header
+                //this will first refresh the headers, then refresh new selected data
+                document.getElementById('extremes').innerHTML = "<tr>" +
+                        "<th>State</th>" +
+                        "<th>Element</th>" +
+                        "<th>Notes</th>" +
+                        "<th>Value</th>" +
+                        "<th>Date</th>" +
+                        "<th>Location</th>" +
+                        "<th>Station</th>" +
+                        "</tr>";
+
+                //data array is used to call up all information from each record
+                var dataArray = data.dataCollection;
+
+                //use a for loop for all weather extremes in the array and create a list
+                for (var i = 0; i < dataArray.length; i++) {
+
+                    //match the selected state's represented data with state data from the JSON file
+                    if (dataArray[i].state === state) {
+
+                        //display every piece of data from the JSON object by column
+                        var state = dataArray[i].state;
+                        var element = dataArray[i].element;
+                        var notes = dataArray[i].notes;
+                        var value = dataArray[i].value;
+                        
+                        //declare the units data array to display " or degrees
+                        var units = dataArray[i].units;
+                        
+                        //if else statement to read the data as inches, degrees, or speed
+                        if (units == "degrees F") {
+                            units = "&#8457;";
+                        } else if (units == "inches") {
+                            units = '"';
+                        }
+                        var date = dataArray[i].date;
+                        var location = dataArray[i].location;
+                        var station = dataArray[i].station;
+
+                        //create a list to display each record as though it were a table
+                        row = "<tr>";
+                        row += "<td class='state'>" + state + "</td>";
+                        row += "<td class='element'>" + element + "</td>";
+                        row += "<td class='notes'>" + notes + "</td>";
+                        row += "<td class='value'>" + value + "" + units + "</td>";
+                        row += "<td class='date'>" + date + "</td>";
+                        row += "<td class='location'>" + location + "</td>";
+                        row += "<td class='station'>" + station + "</td>";
+                        row += "</tr>";
+
+                        //append the new record to the current extremes list
+                        document.getElementById('extremes').innerHTML += row;
+                    }
+                }
             }
         </script>
     </head>
