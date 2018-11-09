@@ -1,10 +1,9 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
- * Name: movie_view.class.php
- * Description: This class defines a method "display".
- *              The method accepts a Movie object and displays the details of the movie in a table.
+ * Author: Ryan Byrd
+ * Date: 11/8/2018
+ * Name: movie_detail.class.php
+ * Description: put details about the movie on a page
  */
 
 class MovieDetail extends MovieIndexView {

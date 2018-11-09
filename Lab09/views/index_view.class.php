@@ -1,9 +1,9 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: Mar 6, 2016
+ * Author: Ryan Byrd
+ * Date: 11/8/2018
  * Name: index_view.class.php
- * Description: the parent class for all view classes. The two functions display page header and footer.
+ * Description: Make a generic welcoming page that directs the user to find data
  */
 
 class IndexView {

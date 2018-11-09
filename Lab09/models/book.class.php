@@ -1,9 +1,9 @@
 <?php
 /*
- * Author: Louie Zhu
- * Date: March 30, 2016
+ * Author: Ryan Byrd
+ * Date: 11/8/2018
  * Name: book.class.php
- * Description: the Book class models a real-world book.
+ * Description: the Book class made to give attributes for a Book object to display on a page, pulls from database
  */
 
 class Book {
